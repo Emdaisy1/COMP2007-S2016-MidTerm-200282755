@@ -1,4 +1,9 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Navbar.ascx.cs" Inherits="COMP2007_S2016_MidTerm_200282755.Navbar" %>
+﻿<%--Author: Emma Hilborn - 200282755
+Date: June 23, 2016
+Version: 1
+Description: A navigation bar that can be used on all pages --%>
+
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Navbar.ascx.cs" Inherits="COMP2007_S2016_MidTerm_200282755.Navbar" %>
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->

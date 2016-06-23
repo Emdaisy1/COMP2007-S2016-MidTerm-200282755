@@ -12,19 +12,19 @@ namespace COMP2007_S2016_MidTerm_200282755.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class TodoConnection : DbContext
     {
         public TodoConnection()
             : base("name=TodoConnection")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<Todo> Todos { get; set; }
     }
 }
