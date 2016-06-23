@@ -27,12 +27,13 @@ Description: The main to-do list page which will display all items on the to-do 
                 <asp:GridView runat="server" ID="TodoGridView" AutoGenerateColumns="false"
                     CssClass="table table-striped table-bordered table-hover"
                     DataKeyNames="TodoID" OnRowDeleting="TodoGridView_RowDeleting" AllowPaging="true" PageSize="3" OnPageIndexChanging="TodoGridView_PageIndexChanging"
+                    AllowSorting="true" OnSorting="TodoGridView_Sorting" OnRowDataBound="TodoGridView_RowDataBound"
                     PagerStyle-CssClass="pagination-ys">
                     <Columns>
                         <asp:BoundField DataField="TodoID" HeaderText="Todo ID" Visible="false" SortExpression="TodoID" />
                         <asp:BoundField DataField="TodoName" HeaderText="Todo Name" Visible="true" SortExpression="TodoName" />
                         <asp:BoundField DataField="TodoNotes" HeaderText="Todo Notes" Visible="true" SortExpression="TodoNotes" />
-                        <asp:TemplateField HeaderText="Completed">
+                        <asp:TemplateField HeaderText="Completed" >
                             <ItemTemplate>
                                 <asp:CheckBox ID="todoCompleted" runat="server" AutoPostBack="true" OnCheckedChanged="todoCompleted_CheckedChanged" Checked='<%# Convert.ToBoolean(Eval("Completed")) %>' />
                             </ItemTemplate>

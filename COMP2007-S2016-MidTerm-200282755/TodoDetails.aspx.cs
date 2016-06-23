@@ -17,11 +17,36 @@ namespace COMP2007_S2016_MidTerm_200282755
             if ((!IsPostBack) && (Request.QueryString.Count > 0))
             {
                 this.GetTodo();
-                this.CheckCompleted();
+                if (TodoCompleteCheckBox.Checked == true)
+                {
+                    toDoComplete.Text = "Done!";
+                    toDoComplete.Visible = true;
+                }
+                else
+                {
+                    toDoComplete.Visible = false;
+                }
             }
-            this.CheckCompleted();
+            if (TodoCompleteCheckBox.Checked == true)
+            {
+                toDoComplete.Text = "Done!";
+                toDoComplete.Visible = true;
+            }
+            else
+            {
+                toDoComplete.Visible = false;
+            }
         }
 
+
+        /**
+         * <summary>
+         * This event handler gets the to-do to edit, or nothing if adding a new one
+         * </summary>
+         * 
+         * @method GetTodo
+         * @returns {void}
+         */
         protected void GetTodo()
         {
             int TodoID = Convert.ToInt32(Request.QueryString["TodoID"]);
@@ -49,11 +74,31 @@ namespace COMP2007_S2016_MidTerm_200282755
             }
         }
 
+        /**
+         * <summary>
+         * This event handler sends the user back to the list if they cancel
+         * </summary>
+         * 
+         * @method  CancelButton_Click
+         * @param {object} sender
+         * @param {EventArgs} e
+         * @returns {void}
+         */
         protected void CancelButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/TodoList.aspx");
         }
 
+        /**
+         * <summary>
+         * This event handler saves the todo
+         * </summary>
+         * 
+         * @method  SaveButton_Click
+         * @param {object} sender
+         * @param {EventArgs} e
+         * @returns {void}
+         */
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             // connect to EF DB
@@ -101,26 +146,8 @@ namespace COMP2007_S2016_MidTerm_200282755
 
         protected void TodoCompleteCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if(TodoCompleteCheckBox.Checked == true)
-            {
-                toDoComplete.Visible = true;
-            }
-            else
-            {
-                toDoComplete.Visible = false;
-            }
+
         }
 
-        protected void CheckCompleted()
-        {
-            if (TodoCompleteCheckBox.Checked == true)
-            {
-                toDoComplete.Visible = true;
-            }
-            else
-            {
-                toDoComplete.Visible = false;
-            }
-        }
     }
 }

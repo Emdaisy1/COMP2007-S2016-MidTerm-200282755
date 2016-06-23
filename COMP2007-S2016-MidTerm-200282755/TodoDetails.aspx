@@ -21,9 +21,9 @@ Description: A page allowing a user to edit/alter a to-do (e.g. change name or d
                     <asp:TextBox runat="server" CssClass="form-control" ID="TodoNotesTextBox" placeholder="Todo Notes" required="true" MaxLength="50"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <asp:CheckBox runat="server" ID="TodoCompleteCheckBox" OnCheckedChanged="TodoCompleteCheckBox_CheckedChanged" />
+                    <asp:CheckBox runat="server" ID="TodoCompleteCheckBox" AutoPostBack="true" OnCheckedChanged="TodoCompleteCheckBox_CheckedChanged" />
                     <label class="control-label" for="TodoCompleteCheckBox">Completed</label>
-                    <asp:Label ID="toDoComplete" runat="server">Done!</asp:Label>
+                    <asp:Label ID="toDoComplete" runat="server" Display="Dynamic" Text=""></asp:Label>
                 </div>
                 <div class="text-right">
                     <asp:Button Text="Cancel" ID="CancelButton" runat="server" CssClass="btn btn-warning btn-lg" UseSubmitBehavior="false" CausesValidation="false" OnClick="CancelButton_Click" />
